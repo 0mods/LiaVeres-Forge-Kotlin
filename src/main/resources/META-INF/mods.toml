@@ -1,0 +1,25 @@
+modLoader = "javafml"
+loaderVersion = "[36,)"
+license = "MIT"
+
+[[mods]]
+modId = "liaveres"
+version = "${file.jarVersion}"
+displayName = "LiaVeres"
+#logoFile="LiaVeres.png"
+authors = "AlgorithmLX, HollowHorizon"
+description = '''
+'''
+
+[[dependencies.liaveres]]
+modId = "forge"
+mandatory = true
+versionRange = "[36, 37, 38, 39,)"
+ordering = "NONE"
+side = "BOTH"
+[[dependencies.liaveres]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.16.5, 1.17.1, 1.18,)"
+ordering = "NONE"
+side = "BOTH"
