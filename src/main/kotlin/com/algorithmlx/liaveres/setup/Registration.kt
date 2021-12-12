@@ -36,7 +36,6 @@ class Registration {
 
         val MATTER_CRYSTAL_BLOCK_ITEM = BlockItem(BlockReg.MATTER_CRYSTAL_BLOCK, Item.Properties().tab(LVTab).fireResistant()).setRegistryName("matter_crystal_block")
         val MATTER_BLOCK_ITEM = BlockItem(BlockReg.MATTER_BLOCK, Item.Properties().tab(LVTab)).setRegistryName("matter_block")
-        val CRYSTALLINE_CLUSTER_ITEM = BlockItem(BlockReg.CRYSTALLINE_CLUSTER, Item.Properties().tab(LVTab)).setRegistryName("crystalline_cluster")
 
         val ListItem = arrayOf(
             MATTER_CRYSTAL,
@@ -59,18 +58,15 @@ class Registration {
             MATTER_BOOTS,
             EFFECT_CATALYST,
             MATTER_BLOCK_ITEM,
-            CRYSTALLINE_CLUSTER_ITEM
         )
     }
 
     object BlockReg {
         val MATTER_CRYSTAL_BLOCK = MatterCrystalBlock().setRegistryName("matter_crystal_block")
         val MATTER_BLOCK = MatterBlock().setRegistryName("matter_block")
-        val CRYSTALLINE_CLUSTER = CrystallineCluster().setRegistryName("crystalline_cluster")
         val ListBlock = arrayOf<Block>(
             MATTER_CRYSTAL_BLOCK,
-            MATTER_BLOCK,
-            CRYSTALLINE_CLUSTER
+            MATTER_BLOCK
          )
     }
 
