@@ -6,7 +6,7 @@ license = "MIT"
 modId = "liaveres"
 version = "${file.jarVersion}"
 displayName = "LiaVeres"
-#logoFile="LiaVeres.png"
+logoFile="icon.png"
 authors = "AlgorithmLX, HollowHorizon"
 description = '''
 '''

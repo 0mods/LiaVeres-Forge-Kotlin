@@ -1,0 +1,34 @@
+{
+  "_comment": "Translation help There: https://github.com/AlgorithmLX-Team/TranslateHelp/",
+
+  "item.liaveres.matter_crystal": "§3Кристалл материи",
+  "item.liaveres.matter": "Материя",
+  "item.liaveres.crystalline": "§dКристаллин",
+  "item.liaveres.effect_catalyst": "§3Каталист Эффектов",
+  "item.liaveres.matter_crystal_pickaxe": "§9Кирка из Кристалла материи",
+  "item.liaveres.matter_crystal_sword": "§9Меч из Кристалла материи",
+  "item.liaveres.matter_crystal_axe": "§9Топор из Кристалла материи",
+  "item.liaveres.matter_crystal_shovel": "§9Лопата из Кристалла материи",
+  "item.liaveres.matter_crystal_helmet": "§9Шлем из Кристалла материи",
+  "item.liaveres.matter_crystal_chestplate": "§9Нагрудник из Кристалла материи",
+  "item.liaveres.matter_crystal_leggings": "§9Поножи из Кристалла материи",
+  "item.liaveres.matter_crystal_boots": "§9Ботинки из Кристалла материи",
+  "item.liaveres.matter_crystal_hoe": "§9Мотыга из Кристалла материи",
+  "item.liaveres.matter_helmet": "Шлем из материи",
+  "item.liaveres.matter_chestplate": "Нагрудник из материи",
+  "item.liaveres.matter_leggings": "Поножи из материи",
+  "item.liaveres.matter_boots": "Ботинки из материи",
+  "item.liaveres.enchanted_apple": "Зачарованное яблоко",
+
+  "block.liaveres.matter_crystal_block": "§7Блок Кристалла матреии",
+  "block.liaveres.matter_block": "Блок матреии",
+  "block.liaveres.crystalline_cluster": "Кристаллиновый кластер",
+
+  "itemGroup.liaveres.tab": "LiaVeres",
+
+  "msg.liaveres.effect_catalyst": "В связке с Незеритовой Бронёй, преобразует Незеритовую Бронь в Броню из Кристалла материи, которая вас с легкостью поднимет в воздух.",
+  "msg.liaveres.matter_crystal_armor": "§bОдетый §4полностью §bсет брони, дает полёт, и эффекты",
+  "msg.liaveres.matter_crystal_msg": "§4Б§cЕ§6С§eК§2О§aН§bЕ§3Ч§1Н§9А§dЯ",
+  "msg.liaveres.matter_crystal_pickaxe": "§2Нажмите §fПКМ §2чтобы сломать область блоков, которая равна 31x31",
+  "msg.liaveres.enchanted_apple": "Основа для крафта"
+}
