@@ -1,7 +1,7 @@
 package com.algorithmlx.liaveres.block
 
-import net.minecraft.block.Block
-import net.minecraft.block.material.Material
-import net.minecraftforge.common.ToolType
+import net.minecraft.world.level.block.Block
+import net.minecraft.world.level.material.Material
 
-class MatterBlock : Block(Properties.of(Material.METAL).harvestTool(ToolType.PICKAXE))
+
+class MatterBlock : Block(Properties.of(Material.METAL))

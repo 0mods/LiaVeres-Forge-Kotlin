@@ -18,7 +18,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("net.minecraftforge.gradle", "ForgeGradle", "5.1.+") {
+        classpath("net.minecraftforge.gradle", "ForgeGradle", "5.+") {
             isChanging = true
         }
         classpath("org.jetbrains.kotlin", "kotlin-gradle-plugin", findProperty("kotlin_version").toString())
@@ -39,7 +39,7 @@ group = "com.algorithmlx"
 project.setProperty("archivesBaseName", "LiaVeres")
 
 tasks.withType<KotlinCompile> {
-    kotlinOptions.jvmTarget = "1.8"
+    kotlinOptions.jvmTarget = "16"
 }
 
 configure<UserDevExtension> {

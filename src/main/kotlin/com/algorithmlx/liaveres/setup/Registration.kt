@@ -1,14 +1,13 @@
 package com.algorithmlx.liaveres.setup
 
-import com.algorithmlx.javaModule.liaveres.block.CrystallineCluster
 import com.algorithmlx.liaveres.block.*
 import com.algorithmlx.liaveres.item.*
 import com.algorithmlx.liaveres.setup.Tabs.*
 import com.algorithmlx.liaveres.item.armor.*
-import net.minecraft.block.Block
-import net.minecraft.inventory.EquipmentSlotType
-import net.minecraft.item.BlockItem
-import net.minecraft.item.Item
+import net.minecraft.world.entity.EquipmentSlot
+import net.minecraft.world.item.BlockItem
+import net.minecraft.world.item.Item
+import net.minecraft.world.level.block.Block
 import net.minecraftforge.event.RegistryEvent
 import net.minecraftforge.eventbus.api.SubscribeEvent
 
@@ -25,14 +24,14 @@ class Registration {
         val ENCHANTED_APPLE = EnchantedApple().setRegistryName("enchanted_apple")
         val EFFECT_CATALYST = EffectCatalyst().setRegistryName("effect_catalyst")
 
-        val MATTER_CRYSTAL_HELMET = MatterCrystalArmor(EquipmentSlotType.HEAD, Item.Properties().tab(LVTab).fireResistant()).setRegistryName("matter_crystal_helmet")
-        val MATTER_CRYSTAL_CHESTPLATE = MatterCrystalArmor(EquipmentSlotType.CHEST, Item.Properties().tab(LVTab).fireResistant()).setRegistryName("matter_crystal_chestplate")
-        val MATTER_CRYSTAL_LEGS = MatterCrystalArmor(EquipmentSlotType.LEGS, Item.Properties().tab(LVTab).fireResistant()).setRegistryName("matter_crystal_leggings")
-        val MATTER_CRYSTAL_BOOTS = MatterCrystalArmor(EquipmentSlotType.FEET, Item.Properties().tab(LVTab).fireResistant()).setRegistryName("matter_crystal_boots")
-        val MATTER_HELMET = MatterArmor(EquipmentSlotType.HEAD, Item.Properties().tab(LVTab).fireResistant()).setRegistryName("matter_helmet")
-        val MATTER_CHESTPLATE = MatterArmor(EquipmentSlotType.CHEST, Item.Properties().tab(LVTab).fireResistant()).setRegistryName("matter_chestplate")
-        val MATTER_LEGS = MatterArmor(EquipmentSlotType.LEGS, Item.Properties().tab(LVTab).fireResistant()).setRegistryName("matter_leggings")
-        val MATTER_BOOTS = MatterArmor(EquipmentSlotType.FEET, Item.Properties().tab(LVTab).fireResistant()).setRegistryName("matter_boots")
+        val MATTER_CRYSTAL_HELMET = MatterCrystalArmor(EquipmentSlot.HEAD, Item.Properties().tab(LVTab).fireResistant()).setRegistryName("matter_crystal_helmet")
+        val MATTER_CRYSTAL_CHESTPLATE = MatterCrystalArmor(EquipmentSlot.CHEST, Item.Properties().tab(LVTab).fireResistant()).setRegistryName("matter_crystal_chestplate")
+        val MATTER_CRYSTAL_LEGS = MatterCrystalArmor(EquipmentSlot.LEGS, Item.Properties().tab(LVTab).fireResistant()).setRegistryName("matter_crystal_leggings")
+        val MATTER_CRYSTAL_BOOTS = MatterCrystalArmor(EquipmentSlot.FEET, Item.Properties().tab(LVTab).fireResistant()).setRegistryName("matter_crystal_boots")
+        val MATTER_HELMET = MatterArmor(EquipmentSlot.HEAD, Item.Properties().tab(LVTab).fireResistant()).setRegistryName("matter_helmet")
+        val MATTER_CHESTPLATE = MatterArmor(EquipmentSlot.CHEST, Item.Properties().tab(LVTab).fireResistant()).setRegistryName("matter_chestplate")
+        val MATTER_LEGS = MatterArmor(EquipmentSlot.LEGS, Item.Properties().tab(LVTab).fireResistant()).setRegistryName("matter_leggings")
+        val MATTER_BOOTS = MatterArmor(EquipmentSlot.FEET, Item.Properties().tab(LVTab).fireResistant()).setRegistryName("matter_boots")
 
         val MATTER_CRYSTAL_BLOCK_ITEM = BlockItem(BlockReg.MATTER_CRYSTAL_BLOCK, Item.Properties().tab(LVTab).fireResistant()).setRegistryName("matter_crystal_block")
         val MATTER_BLOCK_ITEM = BlockItem(BlockReg.MATTER_BLOCK, Item.Properties().tab(LVTab)).setRegistryName("matter_block")

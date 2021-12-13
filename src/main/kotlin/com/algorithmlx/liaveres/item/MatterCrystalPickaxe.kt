@@ -3,29 +3,30 @@ package com.algorithmlx.liaveres.item
 import com.algorithmlx.liaveres.LiaVeresKotlin.Constants.ModId
 import com.algorithmlx.liaveres.api.LVItemTiers
 import com.algorithmlx.liaveres.setup.Tabs.*
-import net.minecraft.client.util.ITooltipFlag
-import net.minecraft.entity.player.ServerPlayerEntity
-import net.minecraft.item.ItemStack
-import net.minecraft.item.ItemUseContext
-import net.minecraft.item.PickaxeItem
-import net.minecraft.util.ActionResultType
-import net.minecraft.util.Direction
-import net.minecraft.util.math.BlockPos
-import net.minecraft.util.text.ITextComponent
-import net.minecraft.util.text.TranslationTextComponent
-import net.minecraft.world.World
+import net.minecraft.core.BlockPos
+import net.minecraft.core.Direction
+import net.minecraft.network.chat.Component
+import net.minecraft.network.chat.TranslatableComponent
+import net.minecraft.server.level.ServerPlayer
+import net.minecraft.world.InteractionResult
+import net.minecraft.world.InteractionResultHolder
+import net.minecraft.world.item.ItemStack
+import net.minecraft.world.item.PickaxeItem
+import net.minecraft.world.item.TooltipFlag
+import net.minecraft.world.item.context.UseOnContext
+import net.minecraft.world.level.Level
 
 
 class MatterCrystalPickaxe :
     PickaxeItem(LVItemTiers.MATTER_CRYSTAL, 2147483647, 340282356779733661637539395458142568447F, Properties().tab(LVTab).fireResistant()) {
     private var skip = false
-    override fun useOn(context: ItemUseContext): ActionResultType {
+    override fun useOn(context: UseOnContext): InteractionResult {
         val player = context.player
         val pos = context.clickedPos
         val itemStack = context.itemInHand
-        if (player == null) return ActionResultType.FAIL
-        val world = context.player!!.entity.level
-        if (!world.isClientSide() && !player.isShiftKeyDown && !player.cooldowns.isOnCooldown(itemStack.item) && player is ServerPlayerEntity) {
+        if (player == null) return InteractionResult.FAIL
+        val world = context.player!!.level
+        if (!world.isClientSide() && !player.isShiftKeyDown && !player.cooldowns.isOnCooldown(itemStack.item) && player is ServerPlayer) {
             if (!skip) {
                 val blocks: MutableList<BlockPos> = ArrayList()
                 for (x in 0..31) {
@@ -34,7 +35,7 @@ class MatterCrystalPickaxe :
                             val posX = pos.x
                             val posY = pos.y
                             val posZ = pos.z
-                            when (player.getDirection()) {
+                            when (player.direction) {
                                 Direction.SOUTH -> blocks.add(BlockPos(posX + 17 - x, posY - 1 + y, posZ + z))
                                 Direction.NORTH -> blocks.add(BlockPos(posX - 17 + x, posY - 1 + y, posZ - z))
                                 Direction.EAST -> blocks.add(BlockPos(posX + x, posY - 1 + y, posZ + 17 - z))
@@ -63,8 +64,9 @@ class MatterCrystalPickaxe :
     override fun getContainerItem(itemStack: ItemStack?): ItemStack {
         return itemStack!!.copy()
     }
-    override fun appendHoverText(p_77624_1_: ItemStack, p_77624_2_: World?, p_77624_3_: MutableList<ITextComponent>, p_77624_4_: ITooltipFlag) {
-        p_77624_3_.add(TranslationTextComponent("msg.$ModId.matter_crystal_pickaxe"))
-        p_77624_3_.add(TranslationTextComponent("msg.$ModId.matter_crystal_msg"))
+
+    override fun appendHoverText(p_41421_: ItemStack, p_41422_: Level?, p_41423_: MutableList<Component>, p_41424_: TooltipFlag) {
+        p_41423_.add(TranslatableComponent("msg.$ModId.matter_crystal_pickaxe"))
+        p_41423_.add(TranslatableComponent("msg.$ModId.matter_crystal_msg"))
     }
 }

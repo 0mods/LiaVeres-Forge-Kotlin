@@ -2,20 +2,20 @@ package com.algorithmlx.liaveres.item
 
 import com.algorithmlx.liaveres.LiaVeresKotlin.Constants.ModId
 import com.algorithmlx.liaveres.setup.Tabs.*
-import net.minecraft.client.util.ITooltipFlag
-import net.minecraft.item.Item
-import net.minecraft.item.ItemStack
-import net.minecraft.util.text.ITextComponent
-import net.minecraft.util.text.TranslationTextComponent
-import net.minecraft.world.World
+import net.minecraft.network.chat.Component
+import net.minecraft.network.chat.TranslatableComponent
+import net.minecraft.world.item.Item
+import net.minecraft.world.item.ItemStack
+import net.minecraft.world.item.TooltipFlag
+import net.minecraft.world.level.Level
 
 class EffectCatalyst : Item(Properties().tab(LVTab).fireResistant()) {
     override fun appendHoverText(
         p_77624_1_: ItemStack,
-        p_77624_2_: World?,
-        p_77624_3_: MutableList<ITextComponent>,
-        p_77624_4_: ITooltipFlag
+        p_77624_2_: Level?,
+        p_77624_3_: MutableList<Component>,
+        p_77624_4_: TooltipFlag
     ) {
-        p_77624_3_.add(TranslationTextComponent("msg.$ModId.effect_catalyst"))
+        p_77624_3_.add(TranslatableComponent("msg.$ModId.effect_catalyst"))
     }
 }

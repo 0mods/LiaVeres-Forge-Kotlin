@@ -3,26 +3,26 @@ package com.algorithmlx.liaveres.item.armor
 import com.algorithmlx.liaveres.LiaVeresKotlin
 import com.algorithmlx.liaveres.api.LVArmorTiers
 import com.algorithmlx.liaveres.setup.Registration
-import net.minecraft.entity.Entity
-import net.minecraft.entity.player.PlayerEntity
-import net.minecraft.inventory.EquipmentSlotType
-import net.minecraft.item.ArmorItem
-import net.minecraft.item.ItemStack
-import net.minecraft.potion.EffectInstance
-import net.minecraft.potion.Effects
-import net.minecraft.world.World
+import net.minecraft.world.effect.MobEffectInstance
+import net.minecraft.world.effect.MobEffects
+import net.minecraft.world.entity.Entity
+import net.minecraft.world.entity.EquipmentSlot
+import net.minecraft.world.entity.player.Player
+import net.minecraft.world.item.ArmorItem
+import net.minecraft.world.item.ItemStack
+import net.minecraft.world.level.Level
 
-class MatterArmor(p_i48534_2_: EquipmentSlotType, p_i48534_3_: Properties) :
+class MatterArmor(p_i48534_2_: EquipmentSlot, p_i48534_3_: Properties) :
     ArmorItem(LVArmorTiers.MATTER, p_i48534_2_, p_i48534_3_) {
-    override fun onArmorTick(stack: ItemStack?, world: World?, player: PlayerEntity?) {
+    override fun onArmorTick(stack: ItemStack?, world: Level?, player: Player?) {
         super.onArmorTick(stack, world, player)
         if (!player!!.persistentData.contains("wearingFullMatterArmor")) player.persistentData
             .putBoolean("wearingFullMatterArmor", false)
 
-        val head = player.getItemBySlot(EquipmentSlotType.HEAD)
-        val chest = player.getItemBySlot(EquipmentSlotType.CHEST)
-        val legs = player.getItemBySlot(EquipmentSlotType.LEGS)
-        val feet = player.getItemBySlot(EquipmentSlotType.FEET)
+        val head = player.getItemBySlot(EquipmentSlot.HEAD)
+        val chest = player.getItemBySlot(EquipmentSlot.CHEST)
+        val legs = player.getItemBySlot(EquipmentSlot.LEGS)
+        val feet = player.getItemBySlot(EquipmentSlot.FEET)
 
         if (!player.persistentData.contains("wearingFullMatterArmor")) player
             .persistentData.putBoolean("wearingFullMatterArmor", false)
@@ -36,9 +36,9 @@ class MatterArmor(p_i48534_2_: EquipmentSlotType, p_i48534_3_: Properties) :
             .getBoolean("wearingFullMatterArmor")
         if (iswearingFullMatterArmor) {
 
-            val nv = EffectInstance(Effects.NIGHT_VISION, 300, 0, false, false)
+            val nv = MobEffectInstance(MobEffects.NIGHT_VISION, 300, 0, false, false)
             player.addEffect(nv)
-            val regen = EffectInstance(Effects.REGENERATION, 300, 2147483647, false, false)
+            val regen = MobEffectInstance(MobEffects.REGENERATION, 300, 2147483647, false, false)
             player.addEffect(regen)
         }
         player.persistentData.putBoolean("wearingFullMatterArmor", iswearingFullMatterArmor)
@@ -51,8 +51,8 @@ class MatterArmor(p_i48534_2_: EquipmentSlotType, p_i48534_3_: Properties) :
         return itemStack!!.copy()
     }
 
-    override fun getArmorTexture(stack: ItemStack?, entity: Entity?, slot: EquipmentSlotType?, type: String?): String {
-        return if (slot == EquipmentSlotType.LEGS) {
+    override fun getArmorTexture(stack: ItemStack?, entity: Entity?, slot: EquipmentSlot?, type: String?): String {
+        return if (slot == EquipmentSlot.LEGS) {
             "${LiaVeresKotlin.Constants.ModId}:textures/armor/matter/2.png"
         }
         else {

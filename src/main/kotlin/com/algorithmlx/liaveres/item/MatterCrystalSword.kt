@@ -3,17 +3,17 @@ package com.algorithmlx.liaveres.item
 import com.algorithmlx.liaveres.LiaVeresKotlin.Constants.ModId
 import com.algorithmlx.liaveres.api.LVItemTiers
 import com.algorithmlx.liaveres.setup.Tabs.*
-import net.minecraft.client.util.ITooltipFlag
-import net.minecraft.item.ItemStack
-import net.minecraft.item.SwordItem
-import net.minecraft.util.text.ITextComponent
-import net.minecraft.util.text.TranslationTextComponent
-import net.minecraft.world.World
+import net.minecraft.network.chat.Component
+import net.minecraft.network.chat.TranslatableComponent
+import net.minecraft.world.item.ItemStack
+import net.minecraft.world.item.SwordItem
+import net.minecraft.world.item.TooltipFlag
+import net.minecraft.world.level.Level
 
 class MatterCrystalSword :
     SwordItem(LVItemTiers.MATTER_CRYSTAL, 2147483647, 340282356779733661637539395458142568447F, Properties().tab(LVTab)) {
-    override fun appendHoverText(p_77624_1_: ItemStack, p_77624_2_: World?, p_77624_3_: MutableList<ITextComponent>, p_77624_4_: ITooltipFlag) {
-        p_77624_3_.add(TranslationTextComponent("msg.$ModId.matter_crystal_msg"))
+    override fun appendHoverText(p_41421_: ItemStack, p_41422_: Level?, p_41423_: MutableList<Component>, p_41424_: TooltipFlag) {
+        p_41423_.add(TranslatableComponent("msg.$ModId.matter_crystal_msg"))
     }
     override fun hasContainerItem(stack: ItemStack?): Boolean {
         return true

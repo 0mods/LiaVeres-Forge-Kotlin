@@ -1,19 +1,20 @@
 package com.algorithmlx.liaveres.api
 
 import com.algorithmlx.liaveres.setup.Registration
-import net.minecraft.inventory.EquipmentSlotType
-import net.minecraft.item.IArmorMaterial
-import net.minecraft.item.crafting.Ingredient
-import net.minecraft.util.SoundEvent
-import net.minecraft.util.SoundEvents
+import net.minecraft.sounds.SoundEvent
+import net.minecraft.sounds.SoundEvents
+import net.minecraft.world.entity.EquipmentSlot
+import net.minecraft.world.item.ArmorMaterial
+import net.minecraft.world.item.ItemStack
+import net.minecraft.world.item.crafting.Ingredient
 
 object LVArmorTiers {
     val MATTER_CRYSTAL = ArmorTierCore("matter_crystal", -1, arrayOf(2147483647, 2147483647, 2147483647, 2147483647), 2147483647, SoundEvents.ARMOR_EQUIP_NETHERITE, 340282356779733661637539395458142568447F, 340282356779733661637539395458142568447F, Ingredient.of(
-            Registration.ItemReg.MATTER_CRYSTAL
+            ItemStack(Registration.ItemReg.MATTER_CRYSTAL)
         )
     )
     val MATTER = ArmorTierCore("matter", 6000, arrayOf(5000, 15000, 20000, 10000), 6, SoundEvents.ARMOR_EQUIP_DIAMOND, 20F, 0.5F, Ingredient.of(
-            Registration.ItemReg.MATTER
+            ItemStack(Registration.ItemReg.MATTER)
         )
     )
 
@@ -26,10 +27,10 @@ object LVArmorTiers {
         private val toughness: Float,
         private val knockbackResistance: Float,
         private val repairMaterial: Ingredient
-    ) : IArmorMaterial {
+    ) : ArmorMaterial {
         override fun getName() = name
-        override fun getDurabilityForSlot(slot: EquipmentSlotType) = MAX_DAMAGE_ARRAY[slot.index] * maxDamageFactor
-        override fun getDefenseForSlot(slot: EquipmentSlotType) = damageReductionAmountArray[slot.index]
+        override fun getDurabilityForSlot(slot: EquipmentSlot) = MAX_DAMAGE_ARRAY[slot.index] * maxDamageFactor
+        override fun getDefenseForSlot(slot: EquipmentSlot) = damageReductionAmountArray[slot.index]
         override fun getEnchantmentValue() = enchantability
         override fun getEquipSound() = soundEvent
         override fun getToughness() = toughness
